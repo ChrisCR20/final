@@ -1,0 +1,164 @@
+body
+{
+	margin:			0px;
+	background:		rgba(226,226,226,1);
+	background:		-moz-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 26%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+	background:		-webkit-gradient(left top, right top, color-stop(0%, rgba(226,226,226,1)), color-stop(26%, rgba(219,219,219,1)), color-stop(51%, rgba(209,209,209,1)), color-stop(100%, rgba(254,254,254,1)));
+	background:		-webkit-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 26%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+	background:		-o-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 26%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+	background:		-ms-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 26%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+	background:		linear-gradient(to right, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 26%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+	filter:			progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=1 );
+}
+
+h1
+{
+	margin-top:		50px;
+	margin-left:		20%;
+	margin-right:		20%;
+	text-align:		center;
+	border:			1px solid white;
+	border-radius:		25px;
+	background:		white;
+}
+
+.logout
+{
+	position:		fixed;
+	top:			0px;
+	width:			100%;
+	text-align:		right;
+	background:		#AAAAAA;
+	margin:			0px;
+	border:			0px;
+	border-bottom:		1px solid black;
+}
+
+.link_button
+{
+	border:			1px solid gray;
+	border-radius:		5px;
+	width:			100px;
+	text-align:		center;
+	background:		#CCCCCC;
+}
+
+.logout a:link, .logout a:visited, .logout a:hover, .logout a:active
+{
+	text-decoration:	none;
+	color:			red;
+	text-align:		center;
+}
+
+.container
+{
+	background:		#EEEEEE;
+	width:			90%;
+	border:			1px solid gray;
+	border-radius:		10px;
+	margin-left:		5%;
+	margin-bottom:		15px;
+}
+
+.container h2
+{
+	margin-top:		10px;
+	margin-bottom:		10px;
+	text-align:		center;
+	border-bottom:		1px dashed #AAAAAA;
+}
+
+.container form
+{
+	padding-left:		10px;
+	margin-bottom:		10px;
+	color:			black;
+}
+
+.container a:link, .container a:visited, .container a:hover, .container a:active
+{
+	text-decoration:	none;
+	color:			black;
+}
+
+.container_item
+{
+	color:			black;
+	border-bottom:		1px dashed gray;
+	margin-bottom:		5px;
+	width: 			100%;
+}
+
+.container_item_first_column
+{
+	width:			70%;
+}
+
+.container_item_second_column
+{
+	text-align:		right;
+}
+
+.data
+{
+	display:		inline-block;
+}
+
+.right_up_container
+{
+	float:			right;
+	margin-right:		20px;
+}
+
+.right_container
+{
+	float:			right;
+	display:		inline-block;
+	margin-right:		20px;
+}
+
+.submit
+{
+	text-align:		right;
+}
+
+.submit input
+{
+	border:			1px solid gray;
+	border-radius:		5px;
+	width:			100px;
+	margin-right:		20px;
+}
+
+.submit input:hover
+{
+	cursor:			pointer;
+}
+
+.task_name
+{
+	background:		white;
+	width:			80%;
+	font-weight:		bold;
+	margin-top:		10px;
+}
+
+.task_project
+{
+	background:		white;
+	width:			80%;
+	margin-top:		10px;
+}
+
+.copyright
+{
+	margin-top:		10px;
+	margin-bottom:		10px;
+	margin-left:		5%;
+	margin-right:		5%;
+	text-align:		center;
+	border:			1px solid black;
+	border-radius:		25px;
+	background:		black;
+	color:			white;
+}

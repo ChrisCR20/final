@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>{% block title %}Sistema de gestión de tareas{% endblock %}</title>
+		{% load staticfiles %}
+		<link rel="shortcut icon" type="image/png" href="{% static "todo_list/favicon.ico" %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static "todo_list/css/main.css" %}"/>
+	</head>
+	<body>
+		<h1>Sistema de gestión de tareas</h1>
+		<div class="logout">
+			<div class="right_container">
+				<div class="link_button">
+					<a href="/todo_list/logout">Logout</a>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<h2>Crear proyectos</h2>
+			<form action="/todo_list/create_project" method="POST">{% csrf_token %}
+				<div class="data">
+					Nombre: <input id="form_name" type="text" name="name" value="Nuevo proyecto"></input><br/>
+				</div>
+				<div class="submit">
+					<input type="submit" value="Crear"></input>
+				</div>
+			</form>
+		</div>
+		{% if nprojects > 0 %}
+		<div class="container">
+			<h2>Añadir tarea</h2>
+			<form action="/todo_list/create_task" method="POST">{% csrf_token %}
+				<div class="data">
+					Nombre: <input id="form_name" type="text" name="name" value="Nueva tarea"></input>
+					Prioridad: <select id="form_priority" name="priority">
+							<option value="0">Baja</option>
+							<option value="1">Normal</option>
+							<option value="2">Alta</option>
+						</select>
+					Dificultad: <select id="form_difficulty" name="difficulty">
+							<option value="0">Muy fácil</option>
+							<option value="1">Fácil</option>
+							<option value="2">Normal</option>
+							<option value="3">Difícil</option>
+							<option value="4">Muy difícil</option>
+						</select>
+					Proyecto:  <select id="form_project" name="project">
+							{% for project in projects %}
+							<option value="{{ project.pk }}">{{ project.name }}</option>
+							{% endfor %}
+						</select>
+					Privado: <input type="checkbox" name="user" value="private"></input>
+				</div>
+				<div class="submit">
+					<input type="submit" value="Añadir"></input>
+				</div>
+			</form>
+		</div>
+		{% endif %}
+		{% if ntasks_todo > 0 %}
+		<div class="container">
+			<h2>Tareas pendientes</h2>
+			{% for task in tasks_todo %}
+			<table class="container_item">
+				<tr>
+					<td class="container_item_first_column">
+						<div class="task_name">{{ task.name }}</div>
+					</td>
+					<td>
+						<!-- Celda vacía -->
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="task_project">Proyecto: {{ task.project_str }}</div>
+						<div class="data">
+							Creado: {{ task.creation_date }} |
+							Prioridad: {{ task.priority_str }} |
+							Dificultad: {{ task.difficulty_str }} |
+							Asignación: {{ task.user_str }}
+						</div>
+					</td>
+					<td class="container_item_second_column">
+						<div class="link_button right_up_container"><a href="/todo_list/set_done/{{ task.pk }}" >Finalizar</a></div>
+						<div class="link_button"><a href="/todo_list/drop/{{ task.pk }}" >Borrar</a></div>
+					</td>
+				</tr>
+			</table>
+			{% endfor %}
+		</div>
+		{% endif %}
+		{% if ntasks_done > 0 %}
+		<div class="container">
+			<h2>Tareas acabadas</h2>
+			{% for task in tasks_done %}
+			<table class="container_item">
+				<tr>
+					<td class="container_item_first_column">
+						<div class="task_name">{{ task.name }}</div>
+					</td>
+					<td>
+						<!-- Celda vacía -->
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="task_project">{{ task.project_str }}</div>
+						<div class="data">
+							Creado: {{ task.creation_date }} |
+							Prioridad: {{ task.priority_str }} |
+							Dificultad: {{ task.difficulty_str }} |
+							Finalizado: {{ task.finalization_date }} |
+							Asignación: {{ task.user_str }}
+						</div>
+					</td>
+					<td class="container_item_second_column">
+						<div class="link_button right_up_container"><a href="/todo_list/set_open/{{ task.pk }}" >Reabrir</a></div>
+						<div class="link_button"><a href="/todo_list/drop/{{ task.pk }}" >Borrar</a></div>
+					</td>
+				</tr>
+			</table>
+			{% endfor %}
+		</div>
+		{% endif %}
+		<div class="copyright">Christian Rodriguez</div>
+	</body>
+</html>
