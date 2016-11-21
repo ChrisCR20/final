@@ -29,7 +29,6 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,14 +36,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todo_list'
+    'todo_list',
 ]
 
 MIDDLEWARE_CLASSES = [
+    #'django.middleware.csrf.CsrfViewMiddleware'
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -61,6 +61,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                #'django.core.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -120,3 +121,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 PROJECT_PATH = os.path.realpath(os.path.dirname( __file__ ))
 STATIC_ROOT = os.path.join(PROJECT_PATH, 'static/')
+TEMPLATE_DIRS =(
+    os.path.join(PROJECT_PATH,'todo_list', 'templates/'),
+)
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_PATH, "..", "todo_list", 'templates', 'static'),
+)

@@ -24,7 +24,7 @@ def main(request):
 	tasks_done = tarea.objects.filter(Q(user = request.user) | Q(user = None)).exclude(finalization_date = None).order_by("-finalization_date")
 	projects = proyecto.objects.all().order_by("name")
 
-	return render_to_response("index.html", dict(tasks_done = tasks_done, tasks_todo = tasks_todo, ntasks_todo = ntasks_todo, ntasks_done = ntasks_done, user = request.user, projects = projects, nprojects = nprojects), request)
+	return render_to_response("index.html", dict(tasks_done = tasks_done, tasks_todo = tasks_todo, ntasks_todo = ntasks_todo, ntasks_done = ntasks_done, user = request.user, projects = projects, nprojects = nprojects))
 
 def login(request):
 	username = request.POST.get('username')
